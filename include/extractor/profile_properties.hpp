@@ -66,6 +66,11 @@ struct ProfileProperties
 
     double GetWeightMultiplier() const { return std::pow(10., weight_precision); }
 
+    double GetMaxTurnWeight() const
+    {
+        return std::numeric_limits<TurnPenalty>::max() / GetWeightMultiplier();
+    }
+
     //! penalty to cross a traffic light in deci-seconds
     std::int32_t traffic_signal_penalty;
     //! penalty to do a uturn in deci-seconds
